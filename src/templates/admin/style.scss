@@ -87,8 +87,10 @@
     }
   }
   &__body {
-    margin: 24px 16px;
-    padding: 24px;
-    min-height: 280px;
+    background-color: #f4f6f9;
+    &__container {
+      padding: 30px 50px;
+      height: calc(100vh - 60px);
+    }
   }
 }

@@ -3,11 +3,13 @@ import CustomInput from "../../../components/CustomInput";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { useFormik } from "formik";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { login } from "../features/auth/authSlice";
 import logo from "../../../assets/images/logo.png";
 import "./style.scss";
 import { Typography } from "antd";
+import { LoginAdminAction } from "../../../redux/reducers/authReducer";
+import { AppDispatch } from "../../../redux/configStore";
 
 const schema = yup.object().shape({
   email: yup
@@ -17,7 +19,7 @@ const schema = yup.object().shape({
   password: yup.string().required("Vui lòng nhập password."),
 });
 const Login = () => {
-  // const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -26,8 +28,11 @@ const Login = () => {
     },
     validationSchema: schema,
     onSubmit: (values) => {
-      // dispatch(login(values));
-      navigate("/admin-dashboard");
+      dispatch(LoginAdminAction(values)).then((res) => {
+        if(res?.status === 200 && res.data.role === "admin") {
+          navigate("/admin-dashboard");
+        }
+      });
     },
   });
   // const authState = useSelector((state) => state);

@@ -61,14 +61,14 @@ const AdminLayout = () => {
             }}
             items={[
               {
-                key: "",
+                key: "admin-dashboard",
                 icon: <AiOutlineDashboard className="fs-4" />,
                 label: "Dashboard",
               },
               {
-                key: "customers",
+                key: "admin-customers",
                 icon: <AiOutlineUser className="fs-4" />,
-                label: "Customers",
+                label: "Danh sách khách hàng",
               },
               {
                 key: "Catalog",
@@ -197,18 +197,20 @@ const AdminLayout = () => {
           </Dropdown>
         </div>
         <div className="admin-layout__body">
-          <ToastContainer
-            position="top-right"
-            autoClose={250}
-            hideProgressBar={false}
-            newestOnTop={true}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            theme="light"
-          />
-          <Outlet />
+          <div className="admin-layout__body__container">
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={true}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              theme="light"
+            />
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>
