@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import CustomInput from "../../../components/CustomInput";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 // import { login } from "../features/auth/authSlice";
 import logo from "../../../assets/images/logo.png";
 import "./style.scss";
@@ -35,17 +35,7 @@ const Login = () => {
       });
     },
   });
-  // const authState = useSelector((state) => state);
 
-  // const { user, isError, isSuccess, isLoading, message } = authState.auth;
-
-  // useEffect(() => {
-  //   if (isSuccess) {
-  //     navigate("admin");
-  //   } else {
-  //     navigate("");
-  //   }
-  // }, [user, isError, isSuccess, isLoading]);
   return (
     <div className="login">
       <div className="login__container">
@@ -54,7 +44,6 @@ const Login = () => {
           Đăng Nhập
         </Typography.Title>
         <div className="error text-center">
-          {/* {message.message == "Rejected" ? "You are not an Admin" : ""} */}
         </div>
         <form action="" onSubmit={formik.handleSubmit}>
           <div className="login__group">

@@ -5,7 +5,7 @@ import { http } from "../../utils/config";
 
 const initialState: any = {
   listCustomer: [],
-  customerDetail: {}
+  userDetailInfoAdmin: {}
 };
 
 const CustomerReducer = createSlice({
@@ -15,15 +15,15 @@ const CustomerReducer = createSlice({
     getListCustomer: (state, action: PayloadAction<UserType[]>) => {
       state.listCustomer = action.payload;
     },
-    getCustomerById: (state, action: PayloadAction<UserType>) => {
-      state.customerDetail = action.payload;
+    userInfoAdminAction: (state, action: PayloadAction<UserType>) => {
+      state.userDetailInfoAdmin = action.payload;
     },
   },
 });
 
 export const { 
   getListCustomer,
-  getCustomerById
+  userInfoAdminAction
 } = CustomerReducer.actions;
 export default CustomerReducer.reducer;
 
@@ -38,11 +38,13 @@ export const GetListCustomerAction = () => {
     }
   }
 };
-export const GetCustomerDetailAction = (id: string) => {
+
+export const GetUserDetailAdminAction = (userId: string) => {
   return async (dispatch: AppDispatch) => {
     try {
-      const result = await http.get(`user/${id}`);
-      dispatch(getCustomerById(result.data.data));
+      const result = await http.get(`user/${userId}`);
+      dispatch(userInfoAdminAction(result.data.data));
+      return { status: result.status, data: result.data.data };
     } catch (error) {
       console.log(error);
     }

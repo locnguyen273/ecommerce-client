@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppDispatch } from "../configStore";
 import {
-  history,
+  // history,
   ACCESS_TOKEN,
-  getStore,
+  // getStore,
   http,
   ID_LOGIN,
   setCookie,
@@ -26,7 +26,9 @@ const AuthReducer = createSlice({
   },
 });
 
-export const { loginAdminAction } = AuthReducer.actions;
+export const { 
+  loginAdminAction,
+} = AuthReducer.actions;
 export default AuthReducer.reducer;
 
 // ---------- Action API ---------- //
@@ -34,14 +36,10 @@ export const LoginAdminAction = (user: LoginUserProps) => {
   return async (dispatch: AppDispatch) => {
     try {
       const result = await http.post("user/admin-login", user);
-
-      // set token
       setCookie(ACCESS_TOKEN, result.data.data.token, 30);
       setStore(ACCESS_TOKEN, result.data.data.token);
-      // set id
       setCookie(ID_LOGIN, result.data.data._id, 30);
       setStore(ID_LOGIN, result.data.data._id);
-      // set role
       setCookie(ID_LOGIN, result.data.data.role, 30);
       setStore(ID_LOGIN, result.data.data.role);
 

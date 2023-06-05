@@ -1,0 +1,15 @@
+.customer-detail {
+  &__form {
+
+  }
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  &__bottom {
+    margin: 10px 0 0 0;
+    display: flex;
+    justify-content: end;
+  }
+}
