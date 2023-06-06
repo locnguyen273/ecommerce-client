@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { UserType } from "../../models/userModel";
+import { UserAdminUpdateType, UserType } from "../../models/userModel";
 import { AppDispatch } from "../configStore";
 import { http } from "../../utils/config";
+import { toast } from "react-toastify";
 
 const initialState: any = {
   listCustomer: [],
@@ -46,6 +47,23 @@ export const GetUserDetailAdminAction = (userId: string) => {
       dispatch(userInfoAdminAction(result.data.data));
       return { status: result.status, data: result.data.data };
     } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+export const UpdateUserDetailAdminAction = (user: UserAdminUpdateType) => {
+  return async (dispatch: AppDispatch) => {
+    try {
+      const result = await http.patch(`user/edit-user/${user.id}`, user);
+      dispatch(userInfoAdminAction(result.data.data));
+      if(result.status === 200) {
+        toast.success(result.data.message);
+      } else {
+        toast.error("Cập nhật thất bại. Vui lòng thử lại !");
+      }
+    } catch (error) {
+      toast.error("Cập nhật thất bại. Vui lòng thử lại !");
       console.log(error);
     }
   }

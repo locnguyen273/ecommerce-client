@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { Menu, Typography, Dropdown, Space } from "antd";
 import type { MenuProps } from "antd";
+import jwtDecode, { JwtPayload } from "jwt-decode";
 import logo from "../../assets/images/logo.png";
 import avatar from "../../assets/images/avatar.jpg";
 
@@ -14,17 +15,21 @@ import {
   AiOutlineBgColors,
 } from "react-icons/ai";
 import { RiCouponLine } from "react-icons/ri";
-import { ImBlog } from "react-icons/im";
 import { FaClipboardList, FaBloggerB } from "react-icons/fa";
 import { SiBrandfolder } from "react-icons/si";
 import { BiCategoryAlt } from "react-icons/bi";
 import { LuLogOut } from "react-icons/lu";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import "./style.scss";
+import { ACCESS_TOKEN, getStore } from "../../utils/config";
 
 
 const AdminLayout = () => {
   const navigate = useNavigate();
+  const token: any = getStore(ACCESS_TOKEN);
+  const decoded = jwtDecode<JwtPayload>(token);
+
+  console.log(decoded);
 
   const items: MenuProps["items"] = [
     {
@@ -63,7 +68,7 @@ const AdminLayout = () => {
               {
                 key: "admin-dashboard",
                 icon: <AiOutlineDashboard className="fs-4" />,
-                label: "Dashboard",
+                label: "Trang chủ",
               },
               {
                 key: "admin-customers",
@@ -71,98 +76,49 @@ const AdminLayout = () => {
                 label: "Danh sách khách hàng",
               },
               {
-                key: "Catalog",
+                key: "admin-customers",
                 icon: <AiOutlineShoppingCart className="fs-4" />,
-                label: "Catalog",
-                children: [
-                  {
-                    key: "product",
-                    icon: <AiOutlineShoppingCart className="fs-4" />,
-                    label: "Add Product",
-                  },
-                  {
-                    key: "list-product",
-                    icon: <AiOutlineShoppingCart className="fs-4" />,
-                    label: "Product List",
-                  },
-                  {
-                    key: "brand",
-                    icon: <SiBrandfolder className="fs-4" />,
-                    label: "Brand",
-                  },
-                  {
-                    key: "list-brand",
-                    icon: <SiBrandfolder className="fs-4" />,
-                    label: "Brand List ",
-                  },
-                  {
-                    key: "category",
-                    icon: <BiCategoryAlt className="fs-4" />,
-                    label: "Category",
-                  },
-                  {
-                    key: "list-category",
-                    icon: <BiCategoryAlt className="fs-4" />,
-                    label: "Category List",
-                  },
-                  {
-                    key: "color",
-                    icon: <AiOutlineBgColors className="fs-4" />,
-                    label: "Color",
-                  },
-                  {
-                    key: "list-color",
-                    icon: <AiOutlineBgColors className="fs-4" />,
-                    label: "Color List",
-                  },
-                ],
+                label: "Danh sách sản phẩm",
+              },
+              {
+                key: "admin-customers",
+                icon: <SiBrandfolder className="fs-4" />,
+                label: "Danh sách thương hiệu",
+              },
+              {
+                key: "admin-customers",
+                icon: <BiCategoryAlt className="fs-4" />,
+                label: "Danh sách loại sản phẩm",
+              },
+              {
+                key: "admin-customers",
+                icon: <AiOutlineBgColors className="fs-4" />,
+                label: "Danh sách màu sắc",
               },
               {
                 key: "orders",
                 icon: <FaClipboardList className="fs-4" />,
-                label: "Orders",
+                label: "Đặt hàng",
               },
               {
-                key: "marketing",
+                key: "orders",
                 icon: <RiCouponLine className="fs-4" />,
-                label: "Marketing",
-                children: [
-                  {
-                    key: "coupon",
-                    icon: <ImBlog className="fs-4" />,
-                    label: "Add Coupon",
-                  },
-                  {
-                    key: "coupon-list",
-                    icon: <RiCouponLine className="fs-4" />,
-                    label: "Coupon List",
-                  },
-                ],
+                label: "Danh sách phiếu mua hàng",
               },
               {
                 key: "blogs",
                 icon: <FaBloggerB className="fs-4" />,
-                label: "Blogs",
+                label: "Bài viết",
                 children: [
-                  {
-                    key: "blog",
-                    icon: <ImBlog className="fs-4" />,
-                    label: "Add Blog",
-                  },
                   {
                     key: "blog-list",
                     icon: <FaBloggerB className="fs-4" />,
-                    label: "Blog List",
-                  },
-                  {
-                    key: "blog-category",
-                    icon: <ImBlog className="fs-4" />,
-                    label: "Add Blog Category",
+                    label: "Danh sách bài viết",
                   },
                   {
                     key: "blog-category-list",
                     icon: <FaBloggerB className="fs-4" />,
-                    label: "Blog Category List",
+                    label: "Danh sách loại bài viết",
                   },
                 ],
               },
