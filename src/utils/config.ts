@@ -126,6 +126,7 @@ http.interceptors.request.use(
     config.headers = {
       ...config.headers,
       Authorization: "Bearer " + settings.getStore(ACCESS_TOKEN),
+      refreshToken: getCookie(ACCESS_TOKEN)
     };
     return config;
   },
