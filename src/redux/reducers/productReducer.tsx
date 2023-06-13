@@ -6,6 +6,7 @@ import { HideLoadingAction, ShowLoadingAction } from "./loadingReducer";
 
 const initialState: any = {
   listBrand: [],
+  listProduct: [],
 };
 
 const ProductReducer = createSlice({
@@ -15,10 +16,16 @@ const ProductReducer = createSlice({
     getListBrandAction: (state, action: PayloadAction) => {
       state.listBrand = action.payload;
     },
+    getListProductAction: (state, action: PayloadAction) => {
+      state.listProduct = action.payload;
+    },
   },
 });
 
-export const { getListBrandAction } = ProductReducer.actions;
+export const { 
+  getListBrandAction, 
+  getListProductAction,
+} = ProductReducer.actions;
 export default ProductReducer.reducer;
 
 // ---------- Action API ---------- //
@@ -64,5 +71,23 @@ export const DeleteOneBrandAction = (brandId: string) => {
     } catch (error) {
       console.log(error);
     }
+  };
+};
+
+export const GetListProductsAction = (pageStart: number, pageSize: number) => {
+  return async (dispatch: AppDispatch) => {
+    try {
+      dispatch(ShowLoadingAction());
+      const result = await http.get(
+        `product?page=${pageStart}&limit=${pageSize}`
+      );
+      if (result.status === 200) {
+        dispatch(getListProductAction(result.data.data));
+      }
+      dispatch(HideLoadingAction());
+    } catch (error) {
+      console.log(error);
+    }    
+
   };
 };
