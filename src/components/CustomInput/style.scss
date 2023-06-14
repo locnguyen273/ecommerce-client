@@ -1,0 +1,9 @@
+.custom-input {
+  &__label {
+    margin: 20px 0 10px;
+    font-weight: 600;
+  }
+  &__form-control {
+    padding: 5px 10px 5px 20px;
+  }
+}
