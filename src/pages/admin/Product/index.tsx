@@ -15,12 +15,14 @@ const Product = () => {
   });
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  
+
   useEffect(() => {
     dispatch(GetListProductsAction(pagination.pageStart, pagination.pageSize));
   }, []);
 
-  const listProduct = useSelector((state: RootState) => state.ProductReducer.listProduct);
+  const listProduct = useSelector(
+    (state: RootState) => state.ProductReducer.listProduct
+  );
 
   const showModal = () => {
     setOpen(true);
@@ -94,13 +96,14 @@ const Product = () => {
       <Modal
         width={700}
         open={open}
-        title="Thêm sản phẩm mới"
+        title={
+          <Typography.Title level={3} style={{ textAlign: "center" }}>
+            Thêm sản phẩm mới
+          </Typography.Title>
+        }
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
-          <Button key="back" onClick={handleCancel}>
-            Return
-          </Button>,
           <Button
             key="submit"
             type="primary"

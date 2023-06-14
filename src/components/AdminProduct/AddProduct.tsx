@@ -3,6 +3,8 @@ import { Input, Select, SelectProps, Button } from "antd";
 import { AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import "./style.scss";
 
+const { TextArea } = Input;
+
 const AddProduct = () => {
   const options: SelectProps["options"] = [];
   const [numImg, setNumImg] = useState(1);
@@ -36,7 +38,7 @@ const AddProduct = () => {
           <Input placeholder="" />
         </div>
         <div className="add-product__col">
-          <p>Slug:</p>
+          <p>Thương hiệu:</p>
           <Input placeholder="" />
         </div>
       </div>
@@ -53,8 +55,15 @@ const AddProduct = () => {
           />
         </div>
         <div className="add-product__col">
-          <p>Thương hiệu:</p>
-          <Input placeholder="" />
+          <p>Màu sắc:</p>
+          <Select
+            mode="multiple"
+            placeholder="Vui lòng chọn màu sắc"
+            defaultValue={["a10", "c12"]}
+            onChange={(e) => {}}
+            style={{ width: "100%" }}
+            options={options}
+          />
         </div>
       </div>
       <div className="add-product__row">
@@ -67,22 +76,9 @@ const AddProduct = () => {
           <Input type="number" placeholder="" />
         </div>
       </div>
-      <div className="add-product__row">
-        <div className="add-product__col">
-          <p>Mô tả sản phẩm:</p>
-          <Input placeholder="" />
-        </div>
-        <div className="add-product__col">
-          <p>Màu sắc:</p>
-          <Select
-            mode="multiple"
-            placeholder="Vui lòng chọn màu sắc"
-            defaultValue={["a10", "c12"]}
-            onChange={(e) => {}}
-            style={{ width: "100%" }}
-            options={options}
-          />
-        </div>
+      <div className="add-product__image">
+        <p>Mô tả sản phẩm:</p>
+        <TextArea rows={4} style={{ margin: "10px 0 0"}} />
       </div>
       <div className="add-product__image">
         <div className="add-product__image__head">
