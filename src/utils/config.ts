@@ -117,8 +117,8 @@ export const {
 } = settings;
 
 export const http = axios.create({
-  baseURL: "http://127.0.0.1:5000/api/", //tất cả các hàm khi gọi api đều sử dụng domain này
-  timeout: 30000, //nếu request mất 5 phút mà không nhận được kết quả thì huỷ request
+  baseURL: "https://ecommerce-shopping-api.onrender.com/api/", //tất cả các hàm khi gọi api đều sử dụng domain này
+  timeout: 50000, //nếu request mất 5 phút mà không nhận được kết quả thì huỷ request
 });
 //Cấu hình cho request: Client gửi api đến server
 http.interceptors.request.use(
@@ -126,6 +126,7 @@ http.interceptors.request.use(
     config.headers = {
       ...config.headers,
       Authorization: "Bearer " + settings.getStore(ACCESS_TOKEN),
+      refreshToken: getCookie(ACCESS_TOKEN)
     };
     return config;
   },

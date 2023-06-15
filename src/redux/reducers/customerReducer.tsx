@@ -3,6 +3,7 @@ import { UserAdminUpdateType, UserType } from "../../models/userModel";
 import { AppDispatch } from "../configStore";
 import { http } from "../../utils/config";
 import { toast } from "react-toastify";
+import { HideLoadingAction, ShowLoadingAction } from "./loadingReducer";
 
 const initialState: any = {
   listCustomer: [],
@@ -32,8 +33,10 @@ export default CustomerReducer.reducer;
 export const GetListCustomerAction = () => {
   return async (dispatch: AppDispatch) => {
     try {
+      dispatch(ShowLoadingAction());
       const result = await http.get("user/all-users");
       dispatch(getListCustomer(result.data.data));
+      dispatch(HideLoadingAction());
     } catch (error) {
       console.log(error);
     }

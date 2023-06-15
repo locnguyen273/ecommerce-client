@@ -1,0 +1,41 @@
+.add-product {
+  max-height: 600px;
+  overflow-y: auto;
+  padding: 20px 10px 0;
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  &__col {
+    margin: 0 0 15px 0;
+    p {
+      margin: 0 0 10px 0;
+    }
+  }
+  &__image {
+    width: 100%;
+    margin: 0 0 20px 0;
+    &__head {
+      display: flex;
+      justify-content: space-between;
+      button {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        border: none;
+        color: #fff;
+        background-color: rgb(255, 174, 0);
+        &:hover {
+          color: #fff !important;
+        }
+      }
+    }
+    &__group {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+    }
+  }
+}

@@ -11,6 +11,7 @@ const config = {
 
 const uploadImage = async (data: any) => {
   const response = await http.post("upload", data, config);
+  console.log(response);
   return response.data;
 };
 
