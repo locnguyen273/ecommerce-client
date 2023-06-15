@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import { Button, Pagination, Typography, Modal } from "antd";
+import { Button, Pagination, Typography } from "antd";
 import AddProduct from "../../../components/AdminProduct/AddProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { GetListProductsAction } from "../../../redux/reducers/productReducer";
@@ -13,7 +13,6 @@ const Product = () => {
     pageStart: 1,
     pageSize: 10,
   });
-  const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -26,18 +25,6 @@ const Product = () => {
 
   const showModal = () => {
     setOpen(true);
-  };
-
-  const handleOk = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setOpen(false);
-    }, 3000);
-  };
-
-  const handleCancel = () => {
-    setOpen(false);
   };
 
   return (
@@ -74,13 +61,7 @@ const Product = () => {
                   <td>
                     <Button
                       className="customer__edit"
-                      onClick={() => {
-                        // dispatch(GetUserDetailAdminAction(item._id)).then(res => {
-                        //   if(res?.status === 200) {
-                        //     navigate(`/admin-customers/${item._id}`)
-                        //   }
-                        // })
-                      }}
+                      onClick={() => {}}
                     >
                       <AiFillEdit />
                     </Button>
@@ -93,29 +74,7 @@ const Product = () => {
             })}
         </tbody>
       </table>
-      <Modal
-        width={700}
-        open={open}
-        title={
-          <Typography.Title level={3} style={{ textAlign: "center" }}>
-            Thêm sản phẩm mới
-          </Typography.Title>
-        }
-        onOk={handleOk}
-        onCancel={handleCancel}
-        footer={[
-          <Button
-            key="submit"
-            type="primary"
-            loading={loading}
-            onClick={handleOk}
-          >
-            Tạo mới
-          </Button>,
-        ]}
-      >
-        <AddProduct />
-      </Modal>
+      { open && <AddProduct open={open} setOpen={setOpen} />}
       <div className="customer__pagination">
         <Pagination defaultCurrent={1} total={50} />
       </div>
