@@ -2,37 +2,48 @@
 import { Button, Modal, Pagination, Typography } from "antd";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
 import { AppDispatch, RootState } from "../../../redux/configStore";
-import { GetListBrandsAction } from "../../../redux/reducers/productReducer";
+import {
+  CreateNewBrandAction,
+  DeleteOneBrandAction,
+  GetListBrandsAction,
+} from "../../../redux/reducers/productReducer";
 import { BrandType } from "../../../models/brandModel";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import CustomInput from "../../../components/CustomInput";
 
 const Brands = () => {
   const dispatch: AppDispatch = useDispatch();
-  const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [pagination, setPagination] = useState({
     pageStart: 1,
-    pageSize: 10
+    pageSize: 10,
   });
+  const [createTitle, setCreateTitle] = useState("");
 
-  
   useEffect(() => {
     dispatch(GetListBrandsAction(pagination.pageStart, pagination.pageSize));
-  }, []);
+  }, [pagination.pageStart]);
 
-  const listBrand = useSelector((state: RootState) => state.ProductReducer.listBrand);
-  const showModal = () => {
+  const listBrand = useSelector(
+    (state: RootState) => state.ProductReducer.listBrand
+  );
+  const showModalCreateTitle = () => {
     setOpen(true);
   };
 
-  const handleOk = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setOpen(false);
-    }, 3000);
+  const handleCreateTitle = () => {
+    dispatch(CreateNewBrandAction(createTitle.toLowerCase()));
   };
+
+  const handleDeleteBrand = (id: string) => {
+    dispatch(DeleteOneBrandAction(id)).then((res) => {
+      if(res?.status) {
+        dispatch(GetListBrandsAction(pagination.pageStart, pagination.pageSize));
+      }
+    });
+  }
 
   const handleCancel = () => {
     setOpen(false);
@@ -44,7 +55,7 @@ const Brands = () => {
         Danh sách nhãn hiệu
       </Typography.Title>
       <div className="customer__add-customer">
-        <Button onClick={showModal}>Thêm nhãn hiệu</Button>
+        <Button onClick={showModalCreateTitle}>Thêm nhãn hiệu</Button>
       </div>
       <table>
         <thead>
@@ -65,8 +76,8 @@ const Brands = () => {
                   <td>{index + 1}</td>
                   <td>{item.title}</td>
                   <td>{item.createdBy}</td>
-                  <td>{item.createdAt}</td>
-                  <td>{item.updatedAt}</td>
+                  <td>{moment(item.createdAt).utc().format("DD/MM/YYYY")}</td>
+                  <td>{moment(item.updatedAt).utc().format("DD/MM/YYYY")}</td>
                   <td>
                     <Button
                       className="customer__edit"
@@ -80,7 +91,10 @@ const Brands = () => {
                     >
                       <AiFillEdit />
                     </Button>
-                    <Button className="customer__delete" onClick={showModal}>
+                    <Button
+                      className="customer__delete"
+                      onClick={() => handleDeleteBrand(item._id)}
+                    >
                       <AiFillDelete />
                     </Button>
                   </td>
@@ -93,30 +107,38 @@ const Brands = () => {
         width={700}
         open={open}
         title="Thêm nhãn hiệu mới"
-        onOk={handleOk}
+        onOk={handleCreateTitle}
         onCancel={handleCancel}
         footer={[
-          <Button key="back" onClick={handleCancel}>
-            Return
-          </Button>,
-          <Button
-            key="submit"
-            type="primary"
-            loading={loading}
-            onClick={handleOk}
-          >
+          <Button key="submit" type="primary" onClick={handleCreateTitle}>
             Tạo mới
           </Button>,
         ]}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <CustomInput
+          type="text"
+          label="Tên nhãn hiệu:"
+          id="title"
+          name="title"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setCreateTitle(e.target.value)
+          }
+          onBlur={() => {}}
+          val={createTitle}
+          className="login__input"
+        />
       </Modal>
       <div className="customer__pagination">
-        <Pagination defaultCurrent={1} total={listBrand.total.length} />
+        <Pagination
+          defaultCurrent={pagination.pageStart}
+          total={listBrand.total}
+          onChange={(e) =>
+            setPagination((prev) => ({
+              ...prev,
+              pageStart: e,
+            }))
+          }
+        />
       </div>
     </div>
   );

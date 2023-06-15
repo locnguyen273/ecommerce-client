@@ -12,10 +12,12 @@ import Product from "./pages/admin/Product";
 import Brands from "./pages/admin/Brands";
 import CategoryProduct from "./pages/admin/CategoryProduct";
 import Colors from "./pages/admin/Colors";
+import Loading from "./components/Loading";
 
 function App() {
   return (
     <Router>
+      <Loading />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
