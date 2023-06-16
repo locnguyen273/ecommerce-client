@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomInput from "../../../components/CustomInput";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
@@ -7,9 +7,12 @@ import { useDispatch } from "react-redux";
 // import { login } from "../features/auth/authSlice";
 import logo from "../../../assets/images/logo.png";
 import "./style.scss";
-import { Typography } from "antd";
+import { Typography, Spin } from "antd";
 import { LoginAdminAction } from "../../../redux/reducers/authReducer";
 import { AppDispatch } from "../../../redux/configStore";
+import { LoadingOutlined } from "@ant-design/icons";
+
+const antIcon = <LoadingOutlined style={{ fontSize: 24, color: "#fff" }} spin />;
 
 const schema = yup.object().shape({
   email: yup
@@ -20,6 +23,7 @@ const schema = yup.object().shape({
 });
 const Login = () => {
   const dispatch: AppDispatch = useDispatch();
+  const [loadingSpinner, setLoadingSpinner] = useState(false);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -28,8 +32,10 @@ const Login = () => {
     },
     validationSchema: schema,
     onSubmit: (values) => {
+      setLoadingSpinner(true);
       dispatch(LoginAdminAction(values)).then((res) => {
         if(res?.status === 200 && res.data.role === "admin") {
+          setLoadingSpinner(false);
           navigate("/admin-dashboard");
         }
       });
@@ -80,8 +86,8 @@ const Login = () => {
               Quên mật khẩu ?
             </Link>
           </div>
-          <button className="login__submit" type="submit">
-            Đăng nhập
+          <button className="login__submit" type="submit" disabled={loadingSpinner}>
+            {loadingSpinner ? <Spin indicator={antIcon} /> : "Đăng nhập"}
           </button>
         </form>
       </div>
