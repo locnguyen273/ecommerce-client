@@ -1,0 +1,158 @@
+@use "../../scss/abstracts/" as *;
+.header {
+  border-bottom: 1px solid #ebebeb;
+  height: 70px;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    height: 70px;
+    @include mobile {
+      padding: 0 5%;
+    }
+  }
+  &__logo {
+    img {
+      width: 120px;
+    }
+  }
+  &__menu {
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+
+    @include mini-desktop {
+      width: 500px;
+    }
+    @include tablet {
+      display: none;
+    }
+    @include mobile {
+      display: none;
+    }
+    &__active {
+      min-width: 90px;
+      height: 100%;
+      line-height: 70px;
+      text-align: center;
+      font-size: 16px;
+      transition: all 0.5s ease-in;
+      position: relative;
+      color: $dark-red;
+      &::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 5%;
+        background: linear-gradient(
+          to right, $dark-red, $light-orange);
+        width: 100%;
+        height: 5px;
+        transition: all 0.3s ease-in;
+      }
+      @include mini-desktop {
+        width: auto;
+      }
+    }
+    &__item {
+      min-width: 90px;
+      height: 100%;
+      line-height: 70px;
+      text-align: center;
+      font-size: 16px;
+      transition: all 0.5s ease-in;
+      position: relative;
+      &::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 5%;
+        background: linear-gradient(
+          to right, $dark-red, $light-orange);
+        width: 0%;
+        height: 5px;
+        transition: all 0.3s ease-in;
+      }
+      &:hover::before {
+        width: 100%;
+      }
+      @include mini-desktop {
+        width: auto;
+      }
+    }
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+    height: 70px;
+    &__cart {
+      position: relative;
+      font-size: 30px;
+      width: 40px;
+      height: 40px;
+      line-height: 50px;
+      text-align: center;
+      padding: 0;
+      border: none;
+      background-color: none;
+      transition: all 0.3s ease;
+      &:hover {
+        color: $black !important;
+        span {
+          top: -10px;
+        }
+      }
+      span {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        font-size: 18px;
+        background: $red;
+        color: $white;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 50%;
+      }
+    }
+    &__account {
+      font-size: 32px;
+      @include tablet {
+        display: none;
+      }
+    }
+    &__drawer {
+      display: none;
+      @include tablet {
+        display: block;
+        font-size: 24px;
+        margin: 0 0 0 20px;
+        width: 45px;
+        height: 40px;
+        line-height: 45px;
+        text-align: center;
+        padding: 0;
+        background: none;
+        color: $black;
+        border: none;
+      }
+    }
+  }
+  &__mobile {
+    &__close {
+      float: right;
+      display: flex;
+      align-items: center;
+      color: $black;
+    }
+    li {
+      margin: 0 0 20px 0;
+      a {
+        font-size: 16px;
+      }
+    }
+  }
+}

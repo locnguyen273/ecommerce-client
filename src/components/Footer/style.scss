@@ -1,0 +1,63 @@
+@use "../../scss/abstracts/" as *;
+.footer {
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.1),
+    0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  padding: 20px 0 0;
+  &__container {
+    display: grid;
+    column-gap: 60px;
+    padding: 0 10%;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 0 20px 0;
+
+    @include normal-desktop {
+      column-gap: 10px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @include mini-desktop {
+      column-gap: 20px;
+      row-gap: 30px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include mobile {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 0 5%;
+    }
+  }
+  &__item {
+    &__logo {
+      width: 250px;
+      @include normal-desktop {
+        width: 180px;
+      }
+    }
+    h3 {
+      font-size: 20px !important;
+    }
+    ul li {
+      font-size: 14px;
+      margin: 0 0 5px 0;
+    }
+    &__connect {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 5px;
+      width: 280px;
+    }
+    &__payment {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      width: 300px;
+    }
+  }
+  &__bottom {
+    padding: 10px 0;
+    text-align: center;
+    color: $black;
+    border-top: 1px solid rgba(60, 64, 67, 0.15);
+    background-color: #f8f8f8;
+    @include mobile {
+      font-size: 13px;
+    }
+  }
+}
