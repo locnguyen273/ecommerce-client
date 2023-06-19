@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { Button, Pagination, Typography } from "antd";
 import AddProduct from "../../../components/AdminProduct/AddProduct";
@@ -55,13 +54,12 @@ const Product = () => {
                   <td>{index + 1}</td>
                   <td>{item.name}</td>
                   <td>{item.brand}</td>
-                  <td>{item.price}</td>
+                  <td>{item.price.toLocaleString("vi", {style : "currency", currency : "VND"})}</td>
                   <td>{item.quantity}</td>
                   <td>{item.sold}</td>
                   <td>
                     <Button
                       className="customer__edit"
-                      onClick={() => {}}
                     >
                       <AiFillEdit />
                     </Button>

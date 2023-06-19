@@ -1,5 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import "./style.scss";
 import { Button, Pagination, Typography } from "antd";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";

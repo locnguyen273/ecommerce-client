@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Button, Modal, Pagination, Typography } from "antd";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -123,7 +122,6 @@ const Brands = () => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setCreateTitle(e.target.value)
           }
-          onBlur={() => {}}
           val={createTitle}
           className="login__input"
         />

@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { AppDispatch } from "../configStore";
 
 export const ON_LOADING = "ON_LOADING";
@@ -12,10 +12,10 @@ const LoadingReducer = createSlice({
   name: "LoadingReducer",
   initialState,
   reducers: {
-    showLoadingReducer: (state, action: PayloadAction) => {
+    showLoadingReducer: (state) => {
       state.isLoadingCommon = true;
     },
-    hideLoadingReducer: (state, action: PayloadAction) => {
+    hideLoadingReducer: (state) => {
       state.isLoadingCommon = false;
     },
   }

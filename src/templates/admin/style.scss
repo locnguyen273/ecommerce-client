@@ -1,23 +1,20 @@
+$val-left: 280px;
 .admin-layout {
   min-height: 100vh;
   display: flex;
   &__left {
-    width: 15vw;
-    padding: 0 0 0 15px;
+    width: $val-left;
+    // padding: 0 0 0 15px;
     border-right: 1px solid lightgray;
     &__logo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 99;
-      width: 285px;
+      width: 275px;
       height: 60px;
       background: #fff;
       border-bottom: 1px solid rgba(211, 211, 211, 0.281);
       display: flex;
-      gap: 10px;
+      column-gap: 10px;
       align-items: center;
-      padding: 0 25px;
+      padding: 0 15px;
       img {
         width: 70px;
       }
@@ -26,10 +23,11 @@
       }
     }
     &__menu {
-      margin: 70px 0 0;
-      width: 270px;
+      margin: 20px 0 0;
+      width: 280px;
       height: 90vh;
       overflow-y: auto;
+      padding: 0 0 0 10px;
       .ant-menu {
         width: 260px !important;
         border: none !important;
@@ -37,7 +35,7 @@
     }
   }
   &__right {
-    width: 85vw;
+    width: calc(100vw - $val-left);
     &__header {
       display: flex;
       justify-content: space-between;
@@ -90,7 +88,7 @@
     background-color: #f4f6f9;
     &__container {
       padding: 30px 50px;
-      height: calc(100vh - 60px);
+      min-height: calc(100vh - 60px);
     }
   }
 }

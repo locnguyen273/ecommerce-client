@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 import "./style.scss";
 import { Typography, Input, Button, Switch, Select } from "antd";
@@ -29,7 +28,7 @@ const CustomerDetail = () => {
   const [userRole, setUserRole] = useState(userDetailAdmin.role);
 
 
-  const handleChangeUserInfo = (event: any) => {
+  const handleChangeUserInfo = (event: React.ChangeEvent<HTMLInputElement>) => {
     const name = event.target.name;
     setUserInfo((prev) => ({
       ...prev,

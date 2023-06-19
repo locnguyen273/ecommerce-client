@@ -31,20 +31,20 @@ export const settings = {
     return null;
   },
   setCookieJson: (name: string, value: any, days: number): void => {
-    var expires = "";
+    let expires = "";
     if (days) {
-      var date = new Date();
+      const date = new Date();
       date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
       expires = "; expires=" + date.toUTCString();
     }
     value = JSON.stringify(value);
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
   },
-  getCookieJson: (name: string): any => {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(";");
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
+  getCookieJson: (name: string) => {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
       while (c.charAt(0) === " ") c = c.substring(1, c.length);
       if (c.indexOf(nameEQ) === 0)
         return JSON.parse(c.substring(nameEQ.length, c.length));
@@ -52,19 +52,19 @@ export const settings = {
     return null;
   },
   setCookie: (name: string, value: string, days: number): void => {
-    var expires = "";
+    let expires = "";
     if (days) {
-      var date = new Date();
+      const date = new Date();
       date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
       expires = "; expires=" + date.toUTCString();
     }
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
   },
   getCookie: (name: string): string | null => {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(";");
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
       while (c.charAt(0) === " ") c = c.substring(1, c.length);
       if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
     }
@@ -81,12 +81,12 @@ export const settings = {
     localStorage.setItem(name, value);
   },
   setStoreJson: (name: string, value: any) => {
-    let json = JSON.stringify(value);
+    const json = JSON.stringify(value);
     localStorage.setItem(name, json);
   },
   getStoreJson: (name: string) => {
     if (localStorage.getItem(name)) {
-      let result: any = localStorage.getItem(name);
+      const result: any = localStorage.getItem(name);
       // return JSON.parse(result);
       return result;
     }
