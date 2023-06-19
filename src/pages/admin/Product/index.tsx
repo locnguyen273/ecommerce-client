@@ -54,7 +54,7 @@ const Product = () => {
                   <td>{index + 1}</td>
                   <td>{item.name}</td>
                   <td>{item.brand}</td>
-                  <td>{item.price}</td>
+                  <td>{item.price.toLocaleString("vi", {style : "currency", currency : "VND"})}</td>
                   <td>{item.quantity}</td>
                   <td>{item.sold}</td>
                   <td>
