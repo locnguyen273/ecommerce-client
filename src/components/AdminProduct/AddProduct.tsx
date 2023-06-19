@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { Modal, Typography, Input, Select, SelectProps, Button } from "antd";
 import { AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
@@ -76,18 +75,18 @@ const AddProduct = (props: AddProductType) => {
     index: number,
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    let data: any = [...inputFields];
+    const data = [...inputFields];
     data[index] = event.target.value;
     setInputFields(data);
   };
 
   const handleCreateNewListImg = () => {
-    let newField = "";
+    const newField = "";
     setInputFields([...inputFields, newField]);
   };
 
   const handleDeleteOneImg = (index: number) => {
-    let data = [...inputFields];
+    const data = [...inputFields];
     data.splice(index, 1);
     setInputFields(data);
   };
@@ -97,9 +96,8 @@ const AddProduct = (props: AddProductType) => {
     setProduct((prev) => ({ ...prev, [name]: event.target.value }));
   };
 
-  const handleCreateNewProduct = (event: any) => {
-    event.preventDefault();
-    let newProduct : ProductType = {
+  const handleCreateNewProduct = () => {
+    const newProduct : ProductType = {
       name: product.name,
       slug: product.name,
       description: proDescription,

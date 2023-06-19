@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-// import { login } from "../features/auth/authSlice";
 import logo from "../../../assets/images/logo.png";
 import "./style.scss";
 import { Typography, Spin } from "antd";
@@ -59,7 +58,6 @@ const Login = () => {
               id="email"
               name="email"
               onChange={formik.handleChange("email")}
-              onBlur={formik.handleBlur("email")}
               val={formik.values.email}
               className="login__input"
             />
@@ -72,7 +70,6 @@ const Login = () => {
               id="pass"
               name="password"
               onChange={formik.handleChange("password")}
-              onBlur={formik.handleBlur("password")}
               val={formik.values.password}
               className="login__input"
             />

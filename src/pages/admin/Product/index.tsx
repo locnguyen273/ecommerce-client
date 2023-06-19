@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { Button, Pagination, Typography } from "antd";
 import AddProduct from "../../../components/AdminProduct/AddProduct";
@@ -61,7 +60,6 @@ const Product = () => {
                   <td>
                     <Button
                       className="customer__edit"
-                      onClick={() => {}}
                     >
                       <AiFillEdit />
                     </Button>
