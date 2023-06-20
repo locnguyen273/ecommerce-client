@@ -1,0 +1,40 @@
+@use "../../scss/abstracts/" as *;
+.swiper-home {
+  height: 600px;
+
+  @include normal-desktop {
+    height: 500px;
+  }
+  @include mini-desktop {
+    height: 450px;
+  }
+  @include tablet {
+    height: 400px;
+  }
+  @include mobile {
+    height: 200px;
+  }
+  .swiper-slide img {
+    height: 600px;
+    width: 100%;
+
+    @include normal-desktop {
+      height: 500px;
+    }
+    @include mini-desktop {
+      height: 450px;
+    }
+    @include tablet {
+      height: 400px;
+    }
+    @include mobile {
+      height: 200px;
+    }
+  }
+  .swiper-button-prev, .swiper-button-next {
+    color: white;
+    background-color: #0000004d;
+    width: 40px;
+    height: 70px;
+  }
+}
