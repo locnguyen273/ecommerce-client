@@ -4,7 +4,23 @@
   grid-template-columns: repeat(4, 1fr);
   column-gap: 25px;
   padding: 10px 0;
+  @include mini-desktop {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+  }
+  @include mobile {
+    gap: 10px;
+  }
   img {
     width: 330px;
+    @include normal-desktop {
+      width: 275px;
+    }
+    @include mini-desktop {
+      width: 400px;
+    }
+    @include mobile {
+      width: 180px;
+    }
   }
 }
