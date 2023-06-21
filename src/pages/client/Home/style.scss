@@ -1,0 +1,107 @@
+@use "../../../scss/abstracts/" as *;
+.home {
+  &__container {
+    width: 1400px;
+    margin: auto;
+    padding: 10px;
+    overflow: hidden;
+    @include normal-desktop {
+      width: 1200px;
+    }
+    @include mini-desktop {
+      width: 850px;
+    }
+    @include tablet {
+      width: 680px;
+    }
+    @include mobile {
+      width: 400px;
+    }
+  }
+}
+
+.new-product {
+  margin: 20px 0 0;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    h4 {
+      text-transform: uppercase;
+      font-size: 28px;
+      letter-spacing: 1px;
+      color: $txtColor;
+      @include mobile {
+        font-size: 24px;
+      }
+    }
+    &--view-all {
+      background-color: $light-gray;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      color: $txtColor;
+      float: right;
+      font-size: 13px;
+      height: 34px;
+      padding: 5px 10px;
+      white-space: nowrap;
+      &:hover {
+        color: $txtColor !important;
+        border: 1px solid #e5e7eb !important;
+      }
+    }
+  }
+  &__list {
+    height: 480px;
+    padding: 20px 10px !important;
+  }
+}
+
+.mobile-outstanding {
+  margin: 20px 0 0;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    @include mini-desktop {
+      display: grid;
+    }
+    h4 {
+      text-transform: uppercase;
+      font-size: 28px;
+      letter-spacing: 1px;
+      color: $txtColor;
+      @include mobile {
+        font-size: 24px;
+      }
+    }
+    &--group {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      column-gap: 10px;
+      @include mobile {
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+    &--view-all {
+      background-color: $light-gray;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      color: $txtColor;
+      float: right;
+      font-size: 13px;
+      height: 34px;
+      padding: 5px 10px;
+      white-space: nowrap;
+      &:hover {
+        color: $txtColor !important;
+        border: 1px solid #e5e7eb !important;
+      }
+    }
+  }
+  &__list {
+    height: 480px;
+    padding: 20px 0 !important;
+  }
+}
