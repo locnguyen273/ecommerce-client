@@ -1,14 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Typography, Input } from "antd";
+import { Typography, Input, Button } from "antd";
 import { UserOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import AdviseContactImg from "../../assets/images/advise-contact.jpg";
 import "./style.scss";
+
+const { TextArea } = Input;
 
 const AdviseContact = () => {
   return (
     <div className="advise-contact">
       <motion.div
+        className="advise-contact__animate"
         animate={{
           translateX: [80, 150],
           translateY: [50, 50],
@@ -29,9 +32,30 @@ const AdviseContact = () => {
       <img className="advise-contact__beauty" src={AdviseContactImg} alt="" />
       <div className="advise-contact__right">
         <Typography.Title level={4}>LIÊN HỆ TƯ VẤN</Typography.Title>
-        <Input placeholder="default size" prefix={<UserOutlined />} />
-        <Input placeholder="default size" prefix={<MailOutlined />} />
-        <Input placeholder="default size" prefix={<PhoneOutlined />} />
+        <Input
+          className="advise-contact__right--input"
+          placeholder="Họ và tên *"
+          prefix={<UserOutlined />}
+        />
+        <Input
+          className="advise-contact__right--input"
+          placeholder="Email liên hệ *"
+          prefix={<MailOutlined />}
+        />
+        <Input
+          className="advise-contact__right--input"
+          placeholder="Điện thoại liên hệ *"
+          prefix={<PhoneOutlined />}
+        />
+        <TextArea
+          className="advise-contact__right--textarea"
+          rows={6}
+          placeholder="Bạn cần tư vấn thêm về chương trình, vui lòng để lại tin nhắn tại đây..."
+          maxLength={4}
+        />
+        <Button className="advise-contact__right--register">
+          Đăng ký tư vấn
+        </Button>
       </div>
     </div>
   );

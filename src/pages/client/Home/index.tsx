@@ -32,7 +32,7 @@ const Home = () => {
             breakpoints={{
               1024: { width: 1024, slidesPerView: 4 },
               768: { width: 768, slidesPerView: 3 },
-              425: { width: 240, slidesPerView: 1 },
+              320: { width: 240, slidesPerView: 1 },
             }}
           >
             <SwiperSlide>
@@ -117,7 +117,7 @@ const Home = () => {
             breakpoints={{
               1024: { width: 1024, slidesPerView: 4 },
               768: { width: 768, slidesPerView: 3 },
-              425: { width: 240, slidesPerView: 1 },
+              320: { width: 240, slidesPerView: 1 },
             }}
           >
             <SwiperSlide>

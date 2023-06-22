@@ -1,6 +1,7 @@
 @use "../../scss/abstracts/" as *;
 .header {
   border-bottom: 1px solid #ebebeb;
+  background-color: $white;
   height: 70px;
   &__container {
     display: flex;
@@ -8,8 +9,8 @@
     align-items: center;
     padding: 0 10%;
     height: 70px;
-    @include mobile {
-      padding: 0 5%;
+    @include tablet {
+      padding: 0 2%;
     }
   }
   &__logo {
@@ -155,4 +156,15 @@
       }
     }
   }
+}
+.scrolled {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transform: scaleY(1.01);
+  transition-delay: 1000ms;
+  transition-property: transform;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }

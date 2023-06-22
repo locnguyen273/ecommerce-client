@@ -19,8 +19,14 @@
     @include mini-desktop {
       width: 400px;
     }
+    @include tablet {
+      width: 320px;
+    }
     @include mobile {
       width: 180px;
+    }
+    @include mini-mobile {
+      width: 150px;
     }
   }
 }

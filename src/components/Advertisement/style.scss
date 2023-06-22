@@ -8,6 +8,9 @@
       @include mobile {
         font-size: 24px;
       }
+      @include mini-mobile {
+        font-size: 18px;
+      }
     }
   }
   &__list {
@@ -36,7 +39,10 @@
         width: 320px;
       }
       @include mobile {
-        width: 380px;
+        width: 370px;
+      }
+      @include mini-mobile {
+        width: 300px;
       }
     }
   }
@@ -51,6 +57,9 @@
       @include mobile {
         font-size: 24px;
       }
+      @include mini-mobile {
+        font-size: 18px;
+      }
     }
   }
   &__list {
@@ -79,7 +88,10 @@
         width: 320px;
       }
       @include mobile {
-        width: 380px;
+        width: 370px;
+      }
+      @include mini-mobile {
+        width: 300px;
       }
     }
   }
@@ -93,6 +105,9 @@
       font-size: 28px;
       @include mobile {
         font-size: 24px;
+      }
+      @include mini-mobile {
+        font-size: 18px;
       }
     }
   }
@@ -120,6 +135,14 @@
       max-width: 100%;
       border-top-left-radius: 16px;
       border-top-right-radius: 16px;
+      @include mobile {
+        height: 140px;
+        width: 100%;
+        object-fit: cover;
+      }
+      @include mini-mobile {
+        height: 110px;
+      }
     }
     h4 {
       color: $txtColor;
