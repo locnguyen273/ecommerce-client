@@ -1,0 +1,17 @@
+.about-us {
+  max-width: 1500px;
+  display: flex;
+  justify-content: center;
+  height: 450px;
+  &__left {
+    width: 50%;
+    &__form {
+
+    }
+    &__row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+    }
+  }
+}
