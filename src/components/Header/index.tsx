@@ -31,6 +31,13 @@ const Header = () => {
   const location = useLocation();
   const [active, setActive] = useState<string>("");
   const [open, setOpen] = useState(false);
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 100);
+    });
+  }, []);
 
   useEffect(() => {
     setActive(location.pathname);
@@ -40,9 +47,13 @@ const Header = () => {
   const onClose = () => setOpen(false);
 
   return (
-    <div className="header">
+    <div className={scroll ? "header scrolled" : "header"}>
       <div className="header__container">
-        <Link to="/" className="header__logo" onClick={() => setActive(location.pathname)}>
+        <Link
+          to="/"
+          className="header__logo"
+          onClick={() => setActive(location.pathname)}
+        >
           <img src={Logo} alt="logo" />
         </Link>
         <div className="header__menu">
@@ -50,9 +61,14 @@ const Header = () => {
             menu.map((item) => {
               return (
                 <Link
-                  key={item.id} to={item.path}
+                  key={item.id}
+                  to={item.path}
                   onClick={() => setActive(item.path)}
-                  className={active === item.path ? "header__menu__active" : "header__menu__item"}
+                  className={
+                    active === item.path
+                      ? "header__menu__active"
+                      : "header__menu__item"
+                  }
                 >
                   {item.label}
                 </Link>
@@ -79,7 +95,7 @@ const Header = () => {
       <Drawer
         title={
           <Button className="header__mobile__close" onClick={onClose}>
-            <AiOutlineClose style={{ margin: "0 10px 0 0"}} /> Đóng
+            <AiOutlineClose style={{ margin: "0 10px 0 0" }} /> Đóng
           </Button>
         }
         width={"100%"}

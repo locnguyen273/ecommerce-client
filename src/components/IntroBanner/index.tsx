@@ -20,8 +20,6 @@ const IntroBanner = () => {
         src="https://file.hstatic.net/200000722513/file/sub_banner_2_1031ea3d164c429ba4fdec34400a1d12.png"
         alt=""
       />
-      {/* <img src="https://file.hstatic.net/200000722513/file/sub_banner_1_9663d9e737bc49f59818e87c6b76553e.png" alt="" />
-      <img src="https://file.hstatic.net/200000722513/file/banner_slider_-_right_1_803f30b754ce4ae5b0df43cbc65d2da4.png" alt="" /> */}
     </div>
   );
 };

@@ -15,7 +15,11 @@
       width: 680px;
     }
     @include mobile {
-      width: 400px;
+      width: 370px;
+      padding: 10px 0;
+    }
+    @include mini-mobile {
+      width: 300px;
     }
   }
 }
@@ -102,6 +106,6 @@
   }
   &__list {
     height: 480px;
-    padding: 20px 0 !important;
+    padding: 20px 10px !important;
   }
 }
