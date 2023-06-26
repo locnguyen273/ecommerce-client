@@ -32,54 +32,79 @@
     @include mobile {
       display: none;
     }
-    &__active {
+    &__active,
+    &__item {
+      position: relative;
       min-width: 90px;
       height: 100%;
       line-height: 70px;
       text-align: center;
       font-size: 16px;
       transition: all 0.5s ease-in;
-      position: relative;
-      color: $dark-red;
+      .menuList-submain {
+        display: none;
+      }
       &::before {
         position: absolute;
         content: "";
         left: 0;
         bottom: 5%;
-        background: linear-gradient(
-          to right, $dark-red, $light-orange);
-        width: 100%;
+        background: linear-gradient(to right, $dark-red, $light-orange);
         height: 5px;
         transition: all 0.3s ease-in;
+      }
+      i {
+        margin: 0 0 0 8px;
+        transition: all 0.3s ease-in;
+      }
+      &:hover {
+        &::before {
+          width: 100%;
+        }
+        i {
+          transform: rotate(180deg);
+        }
+        .menuList-submain {
+          display: inline-block;
+          position: absolute;
+          top: 100%;
+          left: 0%;
+          z-index: 10;
+          background: $white;
+          width: 230px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+            rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+          li {
+            height: 40px;
+            a {
+              height: 100%;
+              width: auto;
+              display: block;
+              line-height: 40px;
+              text-align: left;
+              padding: 0 0 0 20px;
+              transition: all 0.3s ease-in-out;
+              &:hover {
+                background-color: $light-gray;
+                color: $txtColor;
+              }
+            }
+          }
+        }
       }
       @include mini-desktop {
         width: auto;
       }
     }
-    &__item {
-      min-width: 90px;
-      height: 100%;
-      line-height: 70px;
-      text-align: center;
-      font-size: 16px;
-      transition: all 0.5s ease-in;
-      position: relative;
+    &__active {
+      color: $dark-red;
       &::before {
-        position: absolute;
-        content: "";
-        left: 0;
-        bottom: 5%;
-        background: linear-gradient(
-          to right, $dark-red, $light-orange);
-        width: 0%;
-        height: 5px;
-        transition: all 0.3s ease-in;
-      }
-      &:hover::before {
         width: 100%;
       }
-      @include mini-desktop {
-        width: auto;
+    }
+    &__item {
+      &::before {
+        width: 0%;
       }
     }
   }
@@ -121,6 +146,49 @@
     }
     &__account {
       font-size: 32px;
+      width: 50px;
+      height: 50px;
+      line-height: 55px;
+      padding: 0;
+      margin: 0 0 0 20px;
+      border: none;
+      transition: all 0.5s ease-in-out;
+      position: relative;
+      .menuList-submain {
+        display: none;
+        li {
+          height: 40px;
+        }
+        a {
+          display: block;
+          font-size: 16px;
+          height: 100%;
+          line-height: 40px;
+          text-align: left;
+          padding: 0 20px;
+          transition: all 0.5s ease-in-out;
+          &:hover {
+            background-color: $light-gray;
+            color: $txtColor;
+          }
+        }
+      }
+      &:hover {
+        color: $dark-gray !important;
+        .menuList-submain {
+          display: inline-block;
+          position: absolute;
+          top: 100%;
+          left: -75%;
+          z-index: 10;
+          background: $white;
+          width: 180px;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+            rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        }
+      }
       @include tablet {
         display: none;
       }
@@ -149,11 +217,40 @@
       align-items: center;
       color: $black;
     }
-    li {
-      margin: 0 0 20px 0;
-      a {
-        font-size: 16px;
+    &__row {
+      font-size: 16px;
+      transition: all 0.3s ease-in-out;
+      div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        i {
+          transition: all 0.3s ease-in-out;
+        }
       }
+      .menuList-submain {
+        display: none;
+      }
+      &:focus {
+        visibility: visible;
+        color: $txtColor;
+        div {
+          i {
+            transform: rotate(180deg);
+          }
+        }
+        .menuList-submain {
+          display: inline-block;
+          margin: 10px 0 0 15px;
+          li {
+            margin: 0 0 10px 0;
+          }
+        }
+      }
+    }
+    li {
+      margin: 0 0 15px 0;
     }
   }
 }
@@ -166,5 +263,6 @@
   transform: scaleY(1.01);
   transition-delay: 1000ms;
   transition-property: transform;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
