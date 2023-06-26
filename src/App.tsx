@@ -15,10 +15,11 @@ import Colors from "./pages/admin/Colors";
 import Loading from "./components/Loading";
 import UserTemplate from "./templates/client";
 import ListProduct from "./pages/client/ListProduct";
-import Contact from "./pages/client/Contact";
+import NewsTech from "./pages/client/NewsTech";
 import AboutUs from "./pages/client/AboutUs";
 import SignUp from "./pages/client/SignUp";
 import Login from "./pages/client/Login";
+import PolicyAndTerms from "./pages/client/PolicyAndTerms";
 
 function App() {
   return (
@@ -28,8 +29,9 @@ function App() {
         <Route element={<UserTemplate />}>
           <Route path="/" element={<Home />} />
           <Route path="/danh-sach-san-pham" element={<ListProduct />} />
-          <Route path="/lien-he" element={<Contact />} />
+          <Route path="/tin-cong-nghe" element={<NewsTech />} />
           <Route path="/ve-chung-toi" element={<AboutUs />} />
+          <Route path="/chinh-sach-va-dieu-khoan" element={<PolicyAndTerms />} />
         </Route>
         <Route path="/dang-ky" element={<SignUp />} />
         <Route path="/dang-nhap" element={<Login />} />
