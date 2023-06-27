@@ -9,6 +9,9 @@
     align-items: center;
     padding: 0 10%;
     height: 70px;
+    @include normal-desktop {
+      padding: 0 4%;
+    }
     @include tablet {
       padding: 0 2%;
     }
