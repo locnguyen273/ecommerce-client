@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.scss";
-import { Button, Typography, Dropdown, Pagination } from "antd";
+import { Button, Typography, Dropdown, Pagination, Drawer } from "antd";
 import ReactPlayer from "react-player";
 import type { MenuProps } from "antd";
 import { DownOutlined } from "@ant-design/icons";
@@ -40,6 +40,11 @@ const items: MenuProps["items"] = [
 const ListProduct = () => {
   const [selectedCategory, setSelectedCategory] = useState(false);
   const [selectedSupplier, setSelectedSupplier] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const showDrawer = () => setOpenDrawer(true);
+
+  const onClose = () => setOpenDrawer(false);
 
   return (
     <div className="list-product">
@@ -129,6 +134,13 @@ const ListProduct = () => {
                   <DownOutlined />
                 </a>
               </Dropdown>
+              <Button 
+                className="list-product__right__heading--right--filter"
+                onClick={showDrawer}
+              >
+                Bộ lọc
+                <i className="fas fa-filter"></i>
+              </Button>
             </div>
           </div>
           <div className="list-product__right__body">
@@ -152,6 +164,34 @@ const ListProduct = () => {
           </div>
         </div>
       </div>
+      <Drawer
+        className="filter-drawer"
+        title={
+          <Typography.Title level={4} className="filter-drawer__title">
+            <i className="fas fa-filter"></i>
+            Bộ lọc
+          </Typography.Title>
+        }
+        placement="bottom"
+        closable={false}
+        onClose={onClose}
+        open={openDrawer}
+        height="100%"
+        footer={
+          <div className="filter-drawer__footer">
+            <Button onClick={onClose} className="filter-drawer__footer--cancel">
+              Hủy
+            </Button>
+            <Button onClick={onClose} className="filter-drawer__footer--apply">
+              Áp dụng
+            </Button>
+          </div>
+        }
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Drawer>
     </div>
   );
 };

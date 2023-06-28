@@ -7,13 +7,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10%;
+    margin: auto;
+    width: 1500px;
     height: 70px;
+    @include large-desktop {
+      width: 1400px;
+    }
     @include normal-desktop {
-      padding: 0 4%;
+      width: 1150px;
+    }
+    @include mini-desktop {
+      width: 100%;
+      padding: 0 25px;
     }
     @include tablet {
-      padding: 0 2%;
+      width: 100%;
+      padding: 10px;
+    }
+    @include mobile {
+      width: 100%;
+      padding: 5px;
     }
   }
   &__logo {
@@ -27,7 +40,7 @@
     justify-content: space-between;
 
     @include mini-desktop {
-      width: 500px;
+      width: 550px;
     }
     @include tablet {
       display: none;
@@ -190,15 +203,39 @@
           overflow: hidden;
           box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
             rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+          @include large-desktop {
+            right: 0;
+            left: unset;
+          }
+          @include normal-desktop {
+            right: 0;
+            left: unset;
+          }
         }
       }
       @include tablet {
+        display: none;
+      }
+      @include mobile {
         display: none;
       }
     }
     &__drawer {
       display: none;
       @include tablet {
+        display: block;
+        font-size: 24px;
+        margin: 0 0 0 20px;
+        width: 45px;
+        height: 40px;
+        line-height: 45px;
+        text-align: center;
+        padding: 0;
+        background: none;
+        color: $black;
+        border: none;
+      }
+      @include mobile {
         display: block;
         font-size: 24px;
         margin: 0 0 0 20px;

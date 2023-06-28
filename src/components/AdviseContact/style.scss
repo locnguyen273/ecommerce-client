@@ -46,9 +46,9 @@
     @include normal-desktop {
       width: 200px;
     }
-    @include mini-desktop {
-      display: none;
-    }
+    // @include mini-desktop {
+    //   display: none;
+    // }
   }
   &__right {
     width: 450px;
@@ -63,10 +63,10 @@
     @include normal-desktop {
       right: 10%;
     }
-    @include mini-desktop {
-      right: 11%;
-      width: 400px;
-    }
+    // @include mini-desktop {
+    //   right: 11%;
+    //   width: 400px;
+    // }
     @include mobile {
       width: 350px;
       height: 430px;

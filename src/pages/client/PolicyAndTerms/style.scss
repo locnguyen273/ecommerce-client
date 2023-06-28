@@ -2,9 +2,9 @@
 .policy-term {
   width: 1200px;
   margin: auto;
-  @include mini-desktop {
-    width: 800px;
-  }
+  // @include mini-desktop {
+  //   width: 800px;
+  // }
   @include tablet {
     width: 700px;
   }
