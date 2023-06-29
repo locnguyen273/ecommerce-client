@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 import { Button, Typography, Dropdown, Pagination, Drawer } from "antd";
 import ReactPlayer from "react-player";
@@ -38,6 +38,9 @@ const items: MenuProps["items"] = [
 ];
 
 const ListProduct = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [selectedCategory, setSelectedCategory] = useState(false);
   const [selectedSupplier, setSelectedSupplier] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);

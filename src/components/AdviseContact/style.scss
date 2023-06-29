@@ -27,6 +27,24 @@
       height: 500px;
     }
   }
+  &__container {
+    width: 1400px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    @include normal-desktop {
+      width: 1150px;
+    }
+    @include mini-desktop {
+      width: 95%;
+    }
+    @include tablet {
+      width: 100%;
+    }
+    @include mobile {
+      width: 100%;
+    }
+  }
   &__animate {
     img {
       @include tablet {
@@ -37,46 +55,34 @@
       }
     } 
   }
-  &__beauty {
-    position: absolute;
-    top: 20%;
-    left: 35%;
-    border-radius: 8px;
-    transform: rotate3d(1, 1, -10, 12deg);
-    @include normal-desktop {
-      width: 200px;
-    }
-    // @include mini-desktop {
-    //   display: none;
-    // }
-  }
   &__right {
     width: 450px;
     height: 500px;
     background-color: #fff;
     position: absolute;
     top: 50%;
-    right: 15%;
-    transform: translate(5%, -50%);
-    border-radius: 16px;
+    right: 0;
+    transform: translate(0%, -50%);
+    border-radius: 8px;
     padding: 24px;
-    @include normal-desktop {
-      right: 10%;
+    @include tablet {
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 24px 16px;
     }
-    // @include mini-desktop {
-    //   right: 11%;
-    //   width: 400px;
-    // }
     @include mobile {
-      width: 350px;
-      height: 430px;
-      right: 50%;
-      transform: translate(50%, -50%);
+      width: 400px;
+      height: auto;
+      left: 50%;
+      transform: translate(-50%, -50%);
       padding: 24px 16px;
     }
     @include mini-mobile {
       width: 300px;
-      padding: 16px 8px;
+      height: auto;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 24px 16px;
     }
     h4 {
       text-align: center;

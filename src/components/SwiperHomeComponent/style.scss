@@ -5,11 +5,11 @@
   @include normal-desktop {
     height: 500px;
   }
-  // @include mini-desktop {
-  //   height: 450px;
-  // }
+  @include mini-desktop {
+    height: 450px;
+  }
   @include tablet {
-    height: 400px;
+    height: 350px;
   }
   @include mobile {
     height: 200px;
@@ -21,11 +21,11 @@
     @include normal-desktop {
       height: 500px;
     }
-    // @include mini-desktop {
-    //   height: 450px;
-    // }
+    @include mini-desktop {
+      height: 450px;
+    }
     @include tablet {
-      height: 400px;
+      height: 350px;
     }
     @include mobile {
       height: 200px;

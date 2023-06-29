@@ -1,0 +1,81 @@
+@use "../../../scss/abstracts/" as *;
+.login-user {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  background-image: url("https://colorlib.com/etc/lf/Login_v4/images/bg-01.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  &__container {
+    width: 500px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+    border-radius: 8px;
+    padding: 16px 24px 24px;
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 120px;
+    }
+    h4 {
+      font-size: 28px;
+      text-transform: capitalize;
+      color: $txtColor;
+    }
+  }
+  &__error {
+    p {
+      color: $red;
+    }
+  }
+  &__body {
+    &--text-end {
+      margin: 15px 0 0;
+      display: flex;
+      justify-content: end;
+    }
+    &__login-other {
+      &__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+          height: 1px;
+          width: 120px;
+          border: 1px solid $dark-gray;
+        }
+      }
+      &__body {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin: 20px 0 0;
+        img {
+          width: 20px;
+          margin: 0 10px 0 0;
+        }
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          height: 40px;
+        }
+        &--google {
+          padding: 0 20px;
+        }
+        &--zalo {
+          padding: 0 30px;
+        } 
+      }
+    }
+  }
+}

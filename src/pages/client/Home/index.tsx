@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.scss";
-import SwiperHome from "../../../components/SwiperHome";
+import SwiperHomeComponent from "../../../components/SwiperHomeComponent";
 import IntroBanner from "../../../components/IntroBanner";
 import { Button, Typography } from "antd";
 import CardItem from "../../../components/CardItem";
@@ -10,9 +10,12 @@ import Advertisement from "../../../components/Advertisement";
 import AdviseContact from "../../../components/AdviseContact";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="home">
-      <SwiperHome />
+      <SwiperHomeComponent />
       <div className="home__container">
         <IntroBanner />
         <div className="new-product">

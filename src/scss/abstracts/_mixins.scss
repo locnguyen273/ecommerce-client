@@ -1,7 +1,7 @@
 @use "./variables" as *;
 
 @mixin mini-mobile {
-  @media screen and (max-width: ($mobile-width - 1)) {
+  @media screen and (max-width: $mini-mobile-width) {
     @content;
   }
 }

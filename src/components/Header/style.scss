@@ -211,6 +211,10 @@
             right: 0;
             left: unset;
           }
+          @include mini-desktop {
+            right: 0;
+            left: unset;
+          }
         }
       }
       @include tablet {
