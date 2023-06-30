@@ -35,6 +35,7 @@
   &__error {
     p {
       color: $red;
+      font-size: 16px;
     }
   }
   &__body {
@@ -50,8 +51,11 @@
         align-items: center;
         span {
           height: 1px;
-          width: 120px;
+          width: 140px;
           border: 1px solid $dark-gray;
+        }
+        p {
+          font-size: 16px;
         }
       }
       &__body {
@@ -74,8 +78,37 @@
         }
         &--zalo {
           padding: 0 30px;
-        } 
+        }
       }
+      &__bottom {
+        font-size: 16px;
+        text-align: center;
+        margin: 10px 0 0;
+        a {
+          margin: 0 0 0 5px;
+          color: $dark-red;
+          font-weight: 500;
+        }
+      }
+    }
+    &__submit {
+      margin: 20px 0 0;
+      width: 100%;
+      height: 50px;
+      border: none;
+      font-size: 18px;
+      color: $white;
+      background-size: 250% auto;
+      background-image: linear-gradient(
+        to left,
+        #227df9 0%,
+        #7462f9 25%,
+        #df3ef8 50%,
+        #7462f9 75%,
+        #227df9 100%
+      );
+      transition: all 0.5s ease;
+      transition-timing-function: ease, ease;
     }
   }
 }

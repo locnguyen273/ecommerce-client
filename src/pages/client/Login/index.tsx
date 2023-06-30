@@ -44,24 +44,24 @@ const Login = () => {
         </div>
         <div className="login-user__body">
           <form action="" onSubmit={formik.handleSubmit}>
-              <CustomInput
-                type="text"
-                label="Email:"
-                id="email"
-                name="email"
-                onChange={formik.handleChange("email")}
-                val={formik.values.email}
-                className="login__input"
-              />
-              <CustomInput
-                type="password"
-                label="Mật khẩu:"
-                id="pass"
-                name="password"
-                onChange={formik.handleChange("password")}
-                val={formik.values.password}
-                className="login__input"
-              />
+            <CustomInput
+              type="text"
+              label="Email:"
+              id="email"
+              name="email"
+              onChange={formik.handleChange("email")}
+              val={formik.values.email}
+              className="login__input"
+            />
+            <CustomInput
+              type="password"
+              label="Mật khẩu:"
+              id="pass"
+              name="password"
+              onChange={formik.handleChange("password")}
+              val={formik.values.password}
+              className="login__input"
+            />
 
             <div className="login-user__body--text-end">
               <Link to="forgot-password" className="">
@@ -76,16 +76,25 @@ const Login = () => {
               </div>
               <div className="login-user__body__login-other__body">
                 <Button className="login-user__body__login-other__body--google">
-                  <img src="https://account.cellphones.com.vn/_nuxt/img/image45.93ceca6.png" alt="" />
+                  <img
+                    src="https://account.cellphones.com.vn/_nuxt/img/image45.93ceca6.png"
+                    alt=""
+                  />
                   Đăng nhập bằng Google
                 </Button>
                 <Button className="login-user__body__login-other__body--zalo">
-                  <img src="https://account.cellphones.com.vn/_nuxt/img/Logo-Zalo-Arc.a36365b.png" alt="" />
+                  <img
+                    src="https://account.cellphones.com.vn/_nuxt/img/Logo-Zalo-Arc.a36365b.png"
+                    alt=""
+                  />
                   Đăng nhập bằng Zalo
                 </Button>
               </div>
+              <p className="login-user__body__login-other__bottom">
+                Bạn chưa có tài khoản ?<Link to="/dang-ky">Đăng ký ngay</Link>
+              </p>
             </div>
-            <button className="login__submit" type="submit">
+            <button className="login-user__body__submit" type="submit">
               Đăng nhập
             </button>
           </form>
