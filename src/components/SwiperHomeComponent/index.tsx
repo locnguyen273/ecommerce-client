@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./style.scss";
-import { Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 import AsusOne from "../../assets/images/asus1.jpg";
 import AsusTwo from "../../assets/images/asus2.jpg";
 import AsusThree from "../../assets/images/asus3.jpg";
@@ -13,12 +13,16 @@ import AsusSix from "../../assets/images/asus6.jpg";
 import AsusSeven from "../../assets/images/asus7.jpg";
 import AsusEight from "../../assets/images/asus8.jpg";
 
-const SwiperHome = () => {
+const SwiperHomeComponent = () => {
   return (
     <Swiper
       rewind={true}
       navigation={true}
-      modules={[Navigation]}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
+      modules={[Autoplay, Navigation]}
       className="swiper-home"
     >
       <SwiperSlide>
@@ -49,4 +53,4 @@ const SwiperHome = () => {
   );
 };
 
-export default SwiperHome;
+export default SwiperHomeComponent;

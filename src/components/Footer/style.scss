@@ -5,30 +5,42 @@
   padding: 20px 0 0;
   &__container {
     display: grid;
-    column-gap: 60px;
-    padding: 0 10%;
+    column-gap: 20px;
     grid-template-columns: repeat(4, 1fr);
-    margin: 0 0 20px 0;
-
+    margin: auto;
+    width: 1500px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    @include large-desktop {
+      width: 1400px;
+    }
     @include normal-desktop {
-      column-gap: 10px;
-      grid-template-columns: repeat(4, 1fr);
+      width: 1150px;
     }
     @include mini-desktop {
-      column-gap: 20px;
-      row-gap: 30px;
+      width: 100%;
+      padding: 0 25px;
+    }
+    @include tablet {
+      width: 100%;
+      padding: 0 15px;
+      gap: 20px;
       grid-template-columns: repeat(2, 1fr);
     }
     @include mobile {
       grid-template-columns: repeat(1, 1fr);
       padding: 0 5%;
+      gap: 20px;
     }
   }
   &__item {
     &__logo {
-      width: 250px;
+      width: 200px;
       @include normal-desktop {
-        width: 180px;
+        width: 160px;
+      }
+      @include mini-desktop {
+        width: 160px;
       }
     }
     h3 {
@@ -43,11 +55,27 @@
       grid-template-columns: repeat(5, 1fr);
       column-gap: 5px;
       width: 280px;
+      @include tablet {
+        grid-template-columns: repeat(3, 1fr);
+        width: 200px;
+      }
     }
     &__payment {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       width: 300px;
+      @include mini-desktop {
+        grid-template-columns: repeat(4, 1fr);
+        width: 240px;
+      }
+      @include tablet {
+        grid-template-columns: repeat(4, 1fr);
+        width: 200px;
+      }
+      @include mini-mobile {
+        grid-template-columns: repeat(4, 1fr);
+        width: 200px;
+      }
     }
   }
   &__bottom {

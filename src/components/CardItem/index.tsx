@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.scss";
 import { Typography } from "antd";
-import Star from "../../assets/images/icons8-star-24.png";
 
 const CardItem = () => {
   return (
@@ -21,21 +20,17 @@ const CardItem = () => {
           Mua kèm LOA SONY SRS-XE300 giá 1.490.000đ ( Áp dụng cho đơn hàng trên 5.000.000đ)
         </p>
         <div className="card-item__info--rating">
-          <img src={Star} alt="" />
-          <img src={Star} alt="" />
-          <img src={Star} alt="" />
-          <img src={Star} alt="" />
-          <img src={Star} alt="" />
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
         </div>
         <div className="card-item__info--favorite">
           <span>Yêu thích</span>
           <i className="fas fa-heart"></i>
         </div>
       </div>
-      
-      {/* <div className="card-item__percent">
-        <p className="card-item__percent-detail">Giảm&nbsp;13%</p>
-      </div> */}
     </div>
   );
 };

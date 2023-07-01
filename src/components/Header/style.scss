@@ -1,268 +1,297 @@
 @use "../../scss/abstracts/" as *;
 .header {
-  border-bottom: 1px solid #ebebeb;
-  background-color: $white;
-  height: 70px;
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10%;
+    border-bottom: 1px solid #ebebeb;
+    background-color: $white;
     height: 70px;
-    @include tablet {
-      padding: 0 2%;
-    }
-  }
-  &__logo {
-    img {
-      width: 120px;
-    }
-  }
-  &__menu {
-    width: 700px;
-    display: flex;
-    justify-content: space-between;
-
-    @include mini-desktop {
-      width: 500px;
-    }
-    @include tablet {
-      display: none;
-    }
-    @include mobile {
-      display: none;
-    }
-    &__active,
-    &__item {
-      position: relative;
-      min-width: 90px;
-      height: 100%;
-      line-height: 70px;
-      text-align: center;
-      font-size: 16px;
-      transition: all 0.5s ease-in;
-      .menuList-submain {
-        display: none;
-      }
-      &::before {
-        position: absolute;
-        content: "";
-        left: 0;
-        bottom: 5%;
-        background: linear-gradient(to right, $dark-red, $light-orange);
-        height: 5px;
-        transition: all 0.3s ease-in;
-      }
-      i {
-        margin: 0 0 0 8px;
-        transition: all 0.3s ease-in;
-      }
-      &:hover {
-        &::before {
-          width: 100%;
-        }
-        i {
-          transform: rotate(180deg);
-        }
-        .menuList-submain {
-          display: inline-block;
-          position: absolute;
-          top: 100%;
-          left: 0%;
-          z-index: 10;
-          background: $white;
-          width: 230px;
-          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-            rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-          li {
-            height: 40px;
-            a {
-              height: 100%;
-              width: auto;
-              display: block;
-              line-height: 40px;
-              text-align: left;
-              padding: 0 0 0 20px;
-              transition: all 0.3s ease-in-out;
-              &:hover {
-                background-color: $light-gray;
-                color: $txtColor;
-              }
-            }
-          }
-        }
-      }
-      @include mini-desktop {
-        width: auto;
-      }
-    }
-    &__active {
-      color: $dark-red;
-      &::before {
-        width: 100%;
-      }
-    }
-    &__item {
-      &::before {
-        width: 0%;
-      }
-    }
-  }
-  &__right {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100px;
-    height: 70px;
-    &__cart {
-      position: relative;
-      font-size: 30px;
-      width: 40px;
-      height: 40px;
-      line-height: 50px;
-      text-align: center;
-      padding: 0;
-      border: none;
-      background-color: none;
-      transition: all 0.3s ease;
-      &:hover {
-        color: $black !important;
-        span {
-          top: -10px;
-        }
-      }
-      span {
-        position: absolute;
-        top: -8px;
-        right: -8px;
-        font-size: 18px;
-        background: $red;
-        color: $white;
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        border-radius: 50%;
-      }
-    }
-    &__account {
-      font-size: 32px;
-      width: 50px;
-      height: 50px;
-      line-height: 55px;
-      padding: 0;
-      margin: 0 0 0 20px;
-      border: none;
-      transition: all 0.5s ease-in-out;
-      position: relative;
-      .menuList-submain {
-        display: none;
-        li {
-          height: 40px;
-        }
-        a {
-          display: block;
-          font-size: 16px;
-          height: 100%;
-          line-height: 40px;
-          text-align: left;
-          padding: 0 20px;
-          transition: all 0.5s ease-in-out;
-          &:hover {
-            background-color: $light-gray;
-            color: $txtColor;
-          }
-        }
-      }
-      &:hover {
-        color: $dark-gray !important;
-        .menuList-submain {
-          display: inline-block;
-          position: absolute;
-          top: 100%;
-          left: -75%;
-          z-index: 10;
-          background: $white;
-          width: 180px;
-          border-radius: 8px;
-          overflow: hidden;
-          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-            rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-        }
-      }
-      @include tablet {
-        display: none;
-      }
-    }
-    &__drawer {
-      display: none;
-      @include tablet {
-        display: block;
-        font-size: 24px;
-        margin: 0 0 0 20px;
-        width: 45px;
-        height: 40px;
-        line-height: 45px;
-        text-align: center;
-        padding: 0;
-        background: none;
-        color: $black;
-        border: none;
-      }
-    }
-  }
-  &__mobile {
-    &__close {
-      float: right;
-      display: flex;
-      align-items: center;
-      color: $black;
-    }
-    &__row {
-      font-size: 16px;
-      transition: all 0.3s ease-in-out;
-      div {
-        width: 100%;
+    &__container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        i {
-          transition: all 0.3s ease-in-out;
+        margin: auto;
+        width: 1500px;
+        height: 70px;
+        @include large-desktop {
+            width: 1400px;
         }
-      }
-      .menuList-submain {
-        display: none;
-      }
-      &:focus {
-        visibility: visible;
-        color: $txtColor;
-        div {
-          i {
-            transform: rotate(180deg);
-          }
+        @include normal-desktop {
+            width: 1150px;
         }
-        .menuList-submain {
-          display: inline-block;
-          margin: 10px 0 0 15px;
-          li {
-            margin: 0 0 10px 0;
-          }
+        @include mini-desktop {
+            width: 100%;
+            padding: 0 25px;
         }
-      }
+        @include tablet {
+            width: 100%;
+            padding: 10px;
+        }
+        @include mobile {
+            width: 100%;
+            padding: 5px;
+        }
     }
-    li {
-      margin: 0 0 15px 0;
+    &__logo {
+        img {
+            width: 120px;
+        }
     }
-  }
+    &__menu {
+        width: 700px;
+        display: flex;
+        justify-content: space-between;
+        @include mini-desktop {
+            width: 550px;
+        }
+        @include tablet {
+            display: none;
+        }
+        @include mobile {
+            display: none;
+        }
+        &__active,
+        &__item {
+            position: relative;
+            min-width: 90px;
+            height: 100%;
+            line-height: 70px;
+            text-align: center;
+            font-size: 16px;
+            transition: all 0.5s ease-in;
+            .menuList-submain {
+                display: none;
+            }
+            &::before {
+                position: absolute;
+                content: "";
+                left: 0;
+                bottom: 5%;
+                background: linear-gradient(to right, $dark-red, $light-orange);
+                height: 5px;
+                transition: all 0.3s ease-in;
+            }
+            i {
+                margin: 0 0 0 8px;
+                transition: all 0.3s ease-in;
+            }
+            &:hover {
+                &::before {
+                    width: 100%;
+                }
+                i {
+                    transform: rotate(180deg);
+                }
+                .menuList-submain {
+                    display: inline-block;
+                    position: absolute;
+                    top: 100%;
+                    left: 0%;
+                    z-index: 10;
+                    background: $white;
+                    width: 230px;
+                    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+                    li {
+                        height: 40px;
+                        a {
+                            height: 100%;
+                            width: auto;
+                            display: block;
+                            line-height: 40px;
+                            text-align: left;
+                            padding: 0 0 0 20px;
+                            transition: all 0.3s ease-in-out;
+                            &:hover {
+                                background-color: $light-gray;
+                                color: $txtColor;
+                            }
+                        }
+                    }
+                }
+            }
+            @include mini-desktop {
+                width: auto;
+            }
+        }
+        &__active {
+            color: $dark-red;
+            &::before {
+                width: 100%;
+            }
+        }
+        &__item {
+            &::before {
+                width: 0%;
+            }
+        }
+    }
+    &__right {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100px;
+        height: 70px;
+        &__cart {
+            position: relative;
+            font-size: 30px;
+            width: 40px;
+            height: 40px;
+            line-height: 50px;
+            text-align: center;
+            padding: 0;
+            border: none;
+            background-color: none;
+            transition: all 0.3s ease;
+            &:hover {
+                color: $black !important;
+                span {
+                    top: -10px;
+                }
+            }
+            span {
+                position: absolute;
+                top: -8px;
+                right: -8px;
+                font-size: 18px;
+                background: $red;
+                color: $white;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 50%;
+            }
+        }
+        &__account {
+            font-size: 32px;
+            width: 50px;
+            height: 50px;
+            line-height: 55px;
+            padding: 0;
+            margin: 0 0 0 20px;
+            border: none;
+            transition: all 0.5s ease-in-out;
+            position: relative;
+            .menuList-submain {
+                display: none;
+                li {
+                    height: 40px;
+                }
+                a {
+                    display: block;
+                    font-size: 16px;
+                    height: 100%;
+                    line-height: 40px;
+                    text-align: left;
+                    padding: 0 20px;
+                    transition: all 0.5s ease-in-out;
+                    &:hover {
+                        background-color: $light-gray;
+                        color: $txtColor;
+                    }
+                }
+            }
+            &:hover {
+                color: $dark-gray !important;
+                .menuList-submain {
+                    display: inline-block;
+                    position: absolute;
+                    top: 100%;
+                    left: -75%;
+                    z-index: 10;
+                    background: $white;
+                    width: 180px;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+                }
+            }
+            @include tablet {
+                display: none;
+            }
+            @include mobile {
+                display: none;
+            }
+        }
+        &__drawer {
+            display: none;
+            @include tablet {
+                display: block;
+                font-size: 24px;
+                margin: 0 0 0 20px;
+                width: 45px;
+                height: 40px;
+                line-height: 45px;
+                text-align: center;
+                padding: 0;
+                background: none;
+                color: $black;
+                border: none;
+            }
+            @include mobile {
+                display: block;
+                font-size: 24px;
+                margin: 0 0 0 20px;
+                width: 45px;
+                height: 40px;
+                line-height: 45px;
+                text-align: center;
+                padding: 0;
+                background: none;
+                color: $black;
+                border: none;
+            }
+        }
+    }
+    &__mobile {
+        &__close {
+            float: right;
+            display: flex;
+            align-items: center;
+            color: $black;
+        }
+        &__row {
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+            div {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                i {
+                    transition: all 0.3s ease-in-out;
+                }
+            }
+            .menuList-submain {
+                display: none;
+            }
+            &:focus {
+                visibility: visible;
+                color: $txtColor;
+                div {
+                    i {
+                        transform: rotate(180deg);
+                    }
+                }
+                .menuList-submain {
+                    display: inline-block;
+                    margin: 10px 0 0 15px;
+                    li {
+                        margin: 0 0 10px 0;
+                    }
+                }
+            }
+        }
+        li {
+            margin: 0 0 15px 0;
+        }
+    }
 }
+
 .scrolled {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  transform: scaleY(1.01);
-  transition-delay: 1000ms;
-  transition-property: transform;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transform: scaleY(1.01);
+    transition-delay: 1000ms;
+    transition-property: transform;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }

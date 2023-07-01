@@ -1,6 +1,10 @@
 @use "../../scss/abstracts/" as *;
 
 .pay-offer {
+  height: 280px;
+  @include mini-desktop {
+    height: 240px;
+  }
   &__top {
     h4 {
       color: $txtColor;
@@ -14,42 +18,44 @@
     }
   }
   &__list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    @include mini-desktop {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px;
+    &::-webkit-scrollbar {
+      display: none;
     }
-    @include mobile {
-      grid-template-columns: repeat(1, 1fr);
-      gap: 20px;
+    @include normal-desktop {
+      gap: 15px;
     }
     img {
-      width: 335px;
-      border-radius: 16px;
+      width: 325px;
+      height: 200px;
+      object-fit: fill;
+      border-radius: 8px;
       cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.05);
+      }
       @include normal-desktop {
-        width: 285px;
+        width: 270px;
+        height: 170px;
       }
       @include mini-desktop {
-        width: 400px;
-      }
-      @include tablet {
-        width: 320px;
-      }
-      @include mobile {
-        width: 370px;
-      }
-      @include mini-mobile {
-        width: 300px;
+        width: 265px;
+        height: 160px;
       }
     }
   }
 }
 
 .special-page {
-  margin: 30px 0;
+  margin: 15px 0;
+  height: 280px;
+  @include mini-desktop {
+    height: 240px;
+  }
   &__top {
     h4 {
       color: $txtColor;
@@ -63,35 +69,33 @@
     }
   }
   &__list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    @include mini-desktop {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px;
+    &::-webkit-scrollbar {
+      display: none;
     }
-    @include mobile {
-      grid-template-columns: repeat(1, 1fr);
-      gap: 20px;
+    @include normal-desktop {
+      gap: 15px;
     }
     img {
-      width: 335px;
-      border-radius: 16px;
+      width: 325px;
+      height: 200px;
+      object-fit: fill;
+      border-radius: 8px;
       cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.05);
+      }
       @include normal-desktop {
-        width: 285px;
+        width: 270px;
+        height: 170px;
       }
       @include mini-desktop {
-        width: 400px;
-      }
-      @include tablet {
-        width: 320px;
-      }
-      @include mobile {
-        width: 370px;
-      }
-      @include mini-mobile {
-        width: 300px;
+        width: 265px;
+        height: 160px;
       }
     }
   }
@@ -99,6 +103,16 @@
 
 .tech-new {
   margin: 0 0 30px 0;
+  height: 350px;
+  @include mini-desktop {
+    height: auto;
+  }
+  @include tablet {
+    height: auto;
+  }
+  @include mobile {
+    height: auto;
+  }
   &__top {
     h4 {
       color: $txtColor;
@@ -112,36 +126,72 @@
     }
   }
   &__list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     gap: 20px;
+    overflow-x: auto;
+    padding: 10px;
     @include mini-desktop {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
+      padding: 10px 0;
+      gap: 10px;
+    }
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 10px 0;
+      gap: 10px;
     }
     @include mobile {
+      display: grid;
       grid-template-columns: repeat(1, 1fr);
+      padding: 10px 0;
+      gap: 10px;
     }
   }
   &__item {
     border: 1px solid $txtColor;
     padding: 8px;
-    border-radius: 16px;
+    border-radius: 8px;
+    width: 325px;
     transition: transform 0.5s ease-in-out;
     &:hover {
       cursor: pointer;
       transform: scale(1.05);
     }
+    @include mini-desktop {
+      width: auto;
+      &:hover {
+        transform: none;
+      }
+    }
+    @include tablet {
+      width: auto;
+      &:hover {
+        transform: none;
+      }
+    }
+    @include mobile {
+      width: auto;
+      &:hover {
+        transform: none;
+      }
+    }
     img {
-      max-width: 100%;
-      border-top-left-radius: 16px;
-      border-top-right-radius: 16px;
+      width: 100%;
+      object-fit: cover;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      @include normal-desktop {
+        height: 120px;
+      }
+      @include mini-desktop {
+        height: auto;
+      }
       @include mobile {
         height: 140px;
         width: 100%;
         object-fit: cover;
-      }
-      @include mini-mobile {
-        height: 110px;
       }
     }
     h4 {
@@ -149,6 +199,16 @@
       font-size: 16px;
       font-weight: 600;
       height: 48px;
+      @include mini-desktop {
+        height: auto;
+      }
+      @include tablet {
+        font-size: 14px;
+        height: auto;
+      }
+      @include mobile {
+        height: auto;
+      }
     }
   }
 }
